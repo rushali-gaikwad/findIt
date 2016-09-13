@@ -1,0 +1,88 @@
+body{
+  background-image: url('./images/background.jpg');
+  .row{
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .app-cls{
+    height: 40px;
+    color: purple;
+    font-size: 20px;
+    text-align: center;
+    .app-heading{
+      color: purple;
+      font-size: 20px;
+    }
+    .left-panel{
+      height: 768px;
+      .search-cls{
+        height :100px;
+      }
+      .list-cls{
+        height: 615px;
+        overflow-y: auto;
+        margin-top: 50px;
+        overflow-x: hidden;
+        .list-item-cls{
+          border: 2px solid darkred;
+          border-radius: 10px;
+          margin-bottom: 10px;
+          color: gainsboro;
+          div:first-child{
+            padding: 0px;
+          }
+          .set-img{
+            //padding: 30px;
+            border-radius: 50px;
+            float: left;
+            max-height: 100px;
+            max-width: 100px;
+          }
+          .info-cls{
+            text-align: left;
+            padding: 0px;
+            float: left;
+            div:first-child{
+              color: black;
+              cursor: pointer;
+            }
+            .info-col-1, .info-col-2{
+              padding: 0px;
+            }
+          }
+        }
+
+      }
+      .list-cls::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      .list-cls::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+      }
+
+      .list-cls::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+      }
+    }
+    .right-panel{
+      height: 768px;
+      #map-canvas {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        position: relative;
+      }
+      .angular-google-map-container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="whoWhereWhat">
+<head>
+    <meta charset="UTF-8">
+    <title>WHOAWHATWHERE APP</title>
+</head>
+<body data-ng-controller="appController">
+<div class="row app-cls">
+    <div class="app-heading " ng-bind="appHeading"></div>
+    <div class="col-xs-4 left-panel">
+        <div class="search-cls">
+            <div class="">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="what" placeholder="What?" ng-model="query">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="where" placeholder="Where?" ng-model="place">
+                </div>
+            </div>
+            <div class="">
+                <button ng-click="find()" type="button" class="btn btn-info">Search</button>
+            </div>
+
+        </div>
+        <div class="list-cls">
+            <div ng-repeat="list in listData" class="row list-item-cls">
+                <div class="col-xs-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
+                    <img src="{{list.photo}}" height="auto" width="auto" class="set-img">
+                </div>
+                <div class="info-cls col-xs-8 col-md-8 col-sm-8 col-lg-8 col-xl-8">
+                    <div ng-click="openApp(list.url)"><span class="info-col-1 col-xs-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 ">Name:</span> <span
+                            class="info-col-2 col-xs-8 col-md-8 col-sm-8 col-lg-8 col-xl-8">{{list.name}}</span></div>
+                    <div ng-show="list.phone==='NA'?false:true"><span
+                            class="info-col-1 col-xs-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 ">Phone:</span> <span
+                            class="info-col-2 col-xs-8 col-md-8 col-sm-8 col-lg-8 col-xl-8">{{list.phone}}</span></div>
+                    <div ng-show="list.phone==='NA'?false:true"><span
+                            class="info-col-1 col-xs-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 ">City:</span> <span
+                            class="info-col-2 col-xs-8 col-md-8 col-sm-8 col-lg-8 col-xl-8">{{list.city}}</span></div>
+                    <div ng-show="list.phone==='NA'?false:true"><span
+                            class="info-col-1 col-xs-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 ">Address:</span> <span
+                            class="info-col-2 col-xs-8 col-md-8 col-sm-8 col-lg-8 col-xl-8">{{list.address}}</span></div>
+                    <div ng-show="list.phone==='NA'?false:true"><span
+                            class="info-col-1 col-xs-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 ">Rating:</span> <span
+                            class="info-col-2 col-xs-8 col-md-8 col-sm-8 col-lg-8 col-xl-8">{{list.rating}}</span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-8 right-panel" id="map-canvas"></div>
+</div>
+</body>
+</html>
