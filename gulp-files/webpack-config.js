@@ -17,6 +17,7 @@ module.exports = {
       'handjs',
 
       'bootstrap/dist/css/bootstrap.min.css',
+      'jquery',
       /* 'bootstrap/dist/css/bootstrap-theme.min.css',
        'bootstrap/dist/js/bootstrap.min.js',
 

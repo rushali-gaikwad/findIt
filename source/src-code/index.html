@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>WHOAWHATWHERE APP</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body data-ng-controller="appController">
 <div class="row app-cls">
@@ -11,7 +13,7 @@
         <div class="search-cls">
             <div class="">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="what" placeholder="What?" ng-model="query">
+                    <input class="form-control" type="text" name="what" placeholder="What?" ng-model="query" >
                 </div>
                 <div class="form-group">
                     <input class="form-control" type="text" name="where" placeholder="Where?" ng-model="place">
@@ -23,9 +25,9 @@
 
         </div>
         <div class="list-cls">
-            <div ng-repeat="list in listData" class="row list-item-cls">
+            <div ng-repeat="list in listData track by $index" class="row list-item-cls result-{{$index}}" ng-show="listData.length > 0">
                 <div class="col-xs-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 ">
-                    <img src="{{list.photo}}" height="auto" width="auto" class="set-img">
+                    <img ng-src="{{list.photo}}" height="auto" width="auto" class="set-img img-responsive">
                 </div>
                 <div class="info-cls col-xs-8 col-md-8 col-sm-8 col-lg-8 col-xl-8">
                     <div ng-click="openApp(list.url)"><span class="info-col-1 col-xs-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 ">Name:</span> <span
@@ -43,8 +45,8 @@
                             class="info-col-1 col-xs-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 ">Rating:</span> <span
                             class="info-col-2 col-xs-8 col-md-8 col-sm-8 col-lg-8 col-xl-8">{{list.rating}}</span></div>
                 </div>
-
             </div>
+            <div ng-show="listData.length > 0">{{listData.length}} records found</div>
         </div>
     </div>
     <div class="col-xs-8 right-panel" id="map-canvas"></div>

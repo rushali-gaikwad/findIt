@@ -1,5 +1,21 @@
 body{
   background-image: url('./images/background.jpg');
+  * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  img {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
   .row{
     margin-right: 0px;
     margin-left: 0px;
@@ -7,7 +23,7 @@ body{
   .app-cls{
     height: 40px;
     color: purple;
-    font-size: 20px;
+    font-size: 1.4vw;
     text-align: center;
     .app-heading{
       color: purple;
@@ -32,11 +48,9 @@ body{
             padding: 0px;
           }
           .set-img{
-            //padding: 30px;
+            margin: auto;
             border-radius: 50px;
-            float: left;
-            max-height: 100px;
-            max-width: 100px;
+
           }
           .info-cls{
             text-align: left;

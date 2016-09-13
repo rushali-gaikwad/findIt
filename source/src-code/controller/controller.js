@@ -22,6 +22,12 @@ export  default  function ($scope, $http) {
     console.error(error);
   });
 
+  function scrollAnimate(index) {
+    var top = $('.result-'+index).get(0).offsetTop - 152;
+    $('.list-cls').animate({
+      scrollTop:top
+    },1500);
+  }
 
   function addMarker(feature) {
     var marker = new mapObj.Marker({
@@ -45,8 +51,10 @@ export  default  function ($scope, $http) {
       infowindow.close();
     });
 
+
     marker.addListener('click', function (event) {
       console.log('click marker',event);
+      scrollAnimate(feature.index);
     });
   }
 
@@ -70,7 +78,7 @@ export  default  function ($scope, $http) {
   //find data on search
   $scope.find = function () {
     $scope.data = {
-      query: $scope.query,
+      query: $scope.query || 'food',
       location: $scope.place
     };
     $http.post('/getdata', $scope.data).then(function (resp) {
@@ -84,18 +92,23 @@ export  default  function ($scope, $http) {
           var _marker = {
             position: new mapObj.LatLng(business.cords.lat, business.cords.lon),
             title: business.name,
-            data: business
+            data: business,
+            index:i
           };
           addMarker(_marker);
         }
       } else {
-        console.error('No Results found');
         alert("Please enter valid Data");
         $scope.listData = null;
+        $scope.query = null;
+        $scope.place = null;
         $('#map-canvas').hide();
       }
     }, function (error) {
       console.error('error',error);
+      alert("Data not found");
+      $scope.listData = null;
+      $scope.query = null;
       $scope.listData = null;
     });
   };
