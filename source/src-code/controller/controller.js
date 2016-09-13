@@ -78,7 +78,7 @@ export  default  function ($scope, $http) {
   //find data on search
   $scope.find = function () {
     $scope.data = {
-      query: $scope.query || 'food',
+      query: $scope.query,
       location: $scope.place
     };
     $http.post('/getdata', $scope.data).then(function (resp) {
